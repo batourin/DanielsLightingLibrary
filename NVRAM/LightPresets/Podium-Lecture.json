@@ -1,0 +1,23 @@
+{
+  "$type": "Daniels.PrincipalHall.Lighting.LightGroup, DanielsPrincipalHallLighting",
+  "Lighting": [
+    {
+      "$type": "Daniels.PrincipalHall.Lighting.DMXFixture, DanielsPrincipalHallLighting",
+      "Muted": false,
+      "Intensity": 19932,
+      "Id": 1,
+      "Name": "South #1"
+    },
+    {
+      "$type": "Daniels.PrincipalHall.Lighting.DMXFixture, DanielsPrincipalHallLighting",
+      "Muted": false,
+      "Intensity": 26576,
+      "Id": 2,
+      "Name": "North #4"
+    }
+  ],
+  "Id": 1,
+  "Name": "Podium",
+  "Muted": false,
+  "Intensity": 27482
+}

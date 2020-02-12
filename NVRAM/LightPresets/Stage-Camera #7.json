@@ -1,0 +1,37 @@
+{
+  "$type": "Daniels.PrincipalHall.Lighting.LightGroup, DanielsPrincipalHallLighting",
+  "Lighting": [
+    {
+      "$type": "Daniels.PrincipalHall.Lighting.DMXFixture, DanielsPrincipalHallLighting",
+      "Muted": false,
+      "Intensity": 14496,
+      "Id": 3,
+      "Name": "South #2"
+    },
+    {
+      "$type": "Daniels.PrincipalHall.Lighting.DMXFixture, DanielsPrincipalHallLighting",
+      "Muted": false,
+      "Intensity": 18422,
+      "Id": 4,
+      "Name": "South #3"
+    },
+    {
+      "$type": "Daniels.PrincipalHall.Lighting.DMXFixture, DanielsPrincipalHallLighting",
+      "Muted": false,
+      "Intensity": 28690,
+      "Id": 5,
+      "Name": "North #5"
+    },
+    {
+      "$type": "Daniels.PrincipalHall.Lighting.DMXFixture, DanielsPrincipalHallLighting",
+      "Muted": false,
+      "Intensity": 23556,
+      "Id": 6,
+      "Name": "North #6"
+    }
+  ],
+  "Id": 2,
+  "Name": "Stage",
+  "Muted": false,
+  "Intensity": 24462
+}

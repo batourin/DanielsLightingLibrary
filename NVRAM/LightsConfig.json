@@ -1,0 +1,129 @@
+{
+  "Profiles": {
+    "ETC Source Four LED Studio HD": {
+      "$id": "1",
+      "Id": 1,
+      "Name": "ETC Source Four LED Studio HD",
+      "DMXChannels": {
+        "Intensity": 1,
+        "WhitePoint": 2
+      }
+    },
+    "Elation Satura Profile Basic": {
+      "$id": "2",
+      "Id": 2,
+      "Name": "Elation Satura Profile Basic",
+      "DMXChannels": {
+        "Intensity": 15,
+        "Pan": 1,
+        "Tilt": 2,
+        "Zoom": 20,
+        "Iris": 18,
+        "Focus": 19,
+        "Blade1": 21,
+        "Blade1Rotate": 22,
+        "Blade2": 23,
+        "Blade2Rotate": 24,
+        "Blade3": 25,
+        "Blade3Rotate": 26,
+        "Blade4": 27,
+        "Blade4Rotate": 28
+      }
+    },
+    "Elation Satura Profile Standard": {
+      "$id": "3",
+      "Id": 3,
+      "Name": "Elation Satura Profile Standard",
+      "DMXChannels": {
+        "Intensity": 17,
+        "Pan": 1,
+        "PanFine": 2,
+        "Tilt": 3,
+        "TiltFine": 4,
+        "Zoom": 22,
+        "Iris": 20,
+        "Focus": 21,
+        "Blade1": 23,
+        "Blade1Rotate": 24,
+        "Blade2": 25,
+        "Blade2Rotate": 26,
+        "Blade3": 27,
+        "Blade3Rotate": 28,
+        "Blade4": 29,
+        "Blade4Rotate": 30
+      }
+    }
+  },
+  "Lights": {
+    "Podium": [
+      {
+        "Id": 1,
+        "Name": "South #1",
+        "Profile": {
+          "$ref": "1"
+        },
+        "BaseDMXChannel": 11
+      },
+      {
+        "Id": 2,
+        "Name": "North #4",
+        "Profile": {
+          "$ref": "1"
+        },
+        "BaseDMXChannel": 41
+      }
+    ],
+    "Stage": [
+      {
+        "Id": 3,
+        "Name": "South #2",
+        "Profile": {
+          "$ref": "1"
+        },
+        "BaseDMXChannel": 21
+      },
+      {
+        "Id": 4,
+        "Name": "South #3",
+        "Profile": {
+          "$ref": "1"
+        },
+        "BaseDMXChannel": 31
+      },
+      {
+        "Id": 5,
+        "Name": "North #5",
+        "Profile": {
+          "$ref": "1"
+        },
+        "BaseDMXChannel": 51
+      },
+      {
+        "Id": 6,
+        "Name": "North #6",
+        "Profile": {
+          "$ref": "1"
+        },
+        "BaseDMXChannel": 61
+      }
+    ],
+    "PTZ": [
+      {
+        "Id": 7,
+        "Name": "South",
+        "Profile": {
+          "$ref": "3"
+        },
+        "BaseDMXChannel": 256
+      },
+      {
+        "Id": 8,
+        "Name": "North",
+        "Profile": {
+          "$ref": "3"
+        },
+        "BaseDMXChannel": 310
+      }
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "$type": "Daniels.PrincipalHall.Lighting.LightGroup, DanielsPrincipalHallLighting",
+  "Lighting": [
+    {
+      "$type": "Daniels.PrincipalHall.Lighting.DMXPTZFixture, DanielsPrincipalHallLighting",
+      "Pan": 56706,
+      "Tilt": 23260,
+      "Zoom": 32365,
+      "Iris": 31973,
+      "Focus": 12445,
+      "Blade1": 12095,
+      "Blade1Rotate": 0,
+      "Blade2": 0,
+      "Blade2Rotate": 0,
+      "Blade3": 0,
+      "Blade3Rotate": 0,
+      "Blade4": 0,
+      "Blade4Rotate": 0,
+      "Muted": false,
+      "Intensity": 40167,
+      "Id": 7,
+      "Name": "South"
+    },
+    {
+      "$type": "Daniels.PrincipalHall.Lighting.DMXPTZFixture, DanielsPrincipalHallLighting",
+      "Pan": 49406,
+      "Tilt": 37521,
+      "Zoom": 27135,
+      "Iris": 41979,
+      "Focus": 0,
+      "Blade1": 0,
+      "Blade1Rotate": 0,
+      "Blade2": 0,
+      "Blade2Rotate": 0,
+      "Blade3": 0,
+      "Blade3Rotate": 0,
+      "Blade4": 12315,
+      "Blade4Rotate": 6510,
+      "Muted": false,
+      "Intensity": 25670,
+      "Id": 8,
+      "Name": "North"
+    }
+  ],
+  "Id": 3,
+  "Name": "PTZ",
+  "Muted": false,
+  "Intensity": 28388
+}
