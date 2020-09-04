@@ -14,6 +14,7 @@ namespace Daniels.Lighting
         public DMXPTZFixture(LightGroup group, DMXFixtureConfig config, BasicTriList transport)
             : base(group, config, transport)
         {
+            Shutter = 65535;
         }
 
         public override string ToString()
@@ -385,6 +386,35 @@ namespace Daniels.Lighting
             }
         }
         #endregion Blade43Rotate
+
+        #region Shutter
+        /*
+         * Shutter
+         */
+        public event EventHandler<ReadOnlyEventArgs<ushort>> ShutterChanged;
+        protected virtual void OnShutterChanged(ReadOnlyEventArgs<ushort> e)
+        {
+            EventHandler<ReadOnlyEventArgs<ushort>> handler = ShutterChanged;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+        private ushort _shutter;
+        [JsonProperty]
+        public ushort Shutter
+        {
+            get { return _shutter; }
+            set
+            {
+                _shutter = value;
+                setTransportValue(DMXChannel.Shutter, value);
+                OnShutterChanged(new ReadOnlyEventArgs<ushort>(value));
+            }
+        }
+        #endregion Shutter
+
+
 
     }
 }

@@ -27,7 +27,8 @@
         "Blade3": 25,
         "Blade3Rotate": 26,
         "Blade4": 27,
-        "Blade4Rotate": 28
+        "Blade4Rotate": 28,
+        "Shutter": 14
       }
     },
     "Elation Satura Profile Standard": {
@@ -50,7 +51,8 @@
         "Blade3": 27,
         "Blade3Rotate": 28,
         "Blade4": 29,
-        "Blade4Rotate": 30
+        "Blade4Rotate": 30,
+        "Shutter": 16
       }
     }
   },

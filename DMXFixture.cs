@@ -77,9 +77,9 @@ namespace Daniels.Lighting
         protected void setTransportValue(DMXChannel channel, ushort value)
         {
             ushort transportScaledValue = (ushort)(256*value/65536);
-            uint transportChannel = (uint)(_config.BaseDMXChannel + Profile.DMXChannels[channel]);
+            uint transportChannel = (uint)(_config.BaseDMXChannel + Profile.DMXChannels[channel]-1);
             _transport.UShortInput[transportChannel].UShortValue = transportScaledValue;
-            CrestronConsole.PrintLine("DMXFixture(\"{0}\"): setTransportValue: {1}:{2}", this.Name, channel.ToString(), transportScaledValue);
+            CrestronConsole.PrintLine("DMXFixture(\"{0}\"): setTransportValue: {1}({2}):{3}", this.Name, channel.ToString(), transportChannel, transportScaledValue);
         }
 
     }

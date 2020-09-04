@@ -26,5 +26,6 @@ namespace Daniels.Lighting
         Blade3Rotate,
         Blade4,
         Blade4Rotate,
+        Shutter,
     }
 }

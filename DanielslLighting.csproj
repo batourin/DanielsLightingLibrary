@@ -98,16 +98,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Properties\ControlSystem.cfg" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CrestronSSProExtensionsLibrary\CrestronSSProExtensionsLibrary.csproj">
-      <Project>{75F60FD9-C86C-4158-A54F-3307FEBE2AFA}</Project>
-      <Name>CrestronSSProExtensionsLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CrestronSSProUIExtensionsLibrary\CrestronSSProUIExtensionsLibrary.csproj">
-      <Project>{5B58E68C-9062-438B-95CA-18B7731C7335}</Project>
-      <Name>CrestronSSProUIExtensionsLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>rem S# Pro preparation will execute after these operations</PostBuildEvent>

@@ -123,8 +123,8 @@ namespace Daniels.Lighting
                         },
                         { "PTZ", new List<DMXFixtureConfig>(2)
                             {
-                                new DMXFixtureConfig(){ Id = 7, Name = "South", Profile = configObj.Profiles["Elation Satura Profile Standard"], BaseDMXChannel = 256,},
-                                new DMXFixtureConfig(){ Id = 8, Name = "North", Profile = configObj.Profiles["Elation Satura Profile Standard"], BaseDMXChannel = 310,},
+                                new DMXFixtureConfig(){ Id = 7, Name = "North", Profile = configObj.Profiles["Elation Satura Profile Standard"], BaseDMXChannel = 256,},
+                                new DMXFixtureConfig(){ Id = 8, Name = "South", Profile = configObj.Profiles["Elation Satura Profile Standard"], BaseDMXChannel = 310,},
                             }
                         },
                     };
@@ -165,6 +165,7 @@ namespace Daniels.Lighting
                 CrestronConsole.AddNewConsoleCommand(ConsoleCommandLightGroups, "lightgroups", "List light groups. Use \"LIGHTGROUPS ?\" for more info.", ConsoleAccessLevelEnum.AccessOperator);
                 CrestronConsole.AddNewConsoleCommand(ConsoleCommandLightGroup, "lightgroup", "Light master commands. Use \"LIGHTGROUP ?\" for more info.", ConsoleAccessLevelEnum.AccessOperator);
                 CrestronConsole.AddNewConsoleCommand(ConsoleCommandLights, "lights", "Lighting commands. Use \"LIGHTS ?\" for more info.", ConsoleAccessLevelEnum.AccessOperator);
+                CrestronConsole.AddNewConsoleCommand(ConsoleCommandDMXTransport, "dmx", "DMX Transport commands. Use \"DMX ?\" for more info.", ConsoleAccessLevelEnum.AccessOperator);
                 CrestronConsole.AddNewConsoleCommand(ConsoleCommandTest, "test", "TEST commands. Use \"TEST ?\" for more info.", ConsoleAccessLevelEnum.AccessOperator);
 
                 ErrorLog.Notice(">>> LightsControl: initialized successfully");
@@ -330,7 +331,6 @@ namespace Daniels.Lighting
                 CrestronConsole.ConsoleCommandResponse(usage);
         }
 
-
         /// <summary>
         /// LIGHT helper console function.
         /// </summary>
@@ -402,8 +402,56 @@ namespace Daniels.Lighting
                 CrestronConsole.ConsoleCommandResponse(usage);
         }
 
-                /// <summary>
+        /// <summary>
         /// LIGHT helper console function.
+        /// </summary>
+        /// <param _name="cmd">command _name</param>
+        private void ConsoleCommandDMXTransport(string cmd)
+        {
+            const string re = @"\G(""((""""|[^""])+)""|(\S+)) *";
+            const string usage = "Usage:\r\n\t dmx <channel> <value>";
+
+            var ms = Regex.Matches(cmd, re);
+            string[] args = ms.Cast<Match>().Select(m => Regex.Replace(m.Groups[2].Success ? m.Groups[2].Value : m.Groups[4].Value, @"""""", @"""")).ToArray();
+
+            if (args.Length == 2)
+            {
+                uint channelNumber = 0;
+                try
+                {
+                    channelNumber = Convert.ToUInt32(args[0]);
+                    if (channelNumber < 1 || channelNumber > 512)
+                        throw new ArgumentOutOfRangeException("args[0]");
+                }
+                catch (Exception)
+                {
+                    CrestronConsole.ConsoleCommandResponse("DMX transport channel can't be converted \"{0}\"", args[0]);
+                    return;
+                }
+                int channelValue = -1;
+                try
+                {
+                    channelValue = Convert.ToInt32(args[1]);
+                    if (channelValue < 0 || channelValue > 255)
+                        throw new ArgumentOutOfRangeException("args[1]");
+                }
+                catch (Exception)
+                {
+                    CrestronConsole.ConsoleCommandResponse("DMX transport channel value can't be converted \"{0}\"", args[1]);
+                    return;
+                }
+
+                _transport.UShortInput[channelNumber].UShortValue = (ushort)channelValue;
+                CrestronConsole.ConsoleCommandResponse("DMX channel {0} set to {1}", channelNumber, channelValue);
+            }
+            else
+                CrestronConsole.ConsoleCommandResponse(usage);
+        }
+
+
+
+        /// <summary>
+        /// Test helper console function.
         /// </summary>
         /// <param _name="cmd">command _name</param>
         private void ConsoleCommandTest(string cmd)

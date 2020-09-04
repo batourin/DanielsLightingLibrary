@@ -24,7 +24,7 @@ namespace Daniels.Lighting
                 if (value <= 512)
                     baseDMXChannel = value;
                 else
-                    throw new ArgumentOutOfRangeException("baseDMXChannel", "DMX channel address must be between 0 and 512");
+                    throw new ArgumentOutOfRangeException("baseDMXChannel", "DMX channelNumber address must be between 0 and 512");
             }
         }
 
